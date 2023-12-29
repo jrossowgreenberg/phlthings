@@ -13,7 +13,7 @@ st.title("PHLimg")
 
 @st.cache_data
 def generate_img(prompt: str, psych: bool):
-    url = "http://127.0.0.1:8000/img/generate"
+    url = "http://phl-backend:8000/img/generate"
     body = {"prompt": prompt, "psychedelic": psych}
     r = requests.post(url, data=json.dumps(body))
     return BytesIO(r.content)

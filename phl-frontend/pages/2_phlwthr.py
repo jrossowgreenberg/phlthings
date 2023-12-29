@@ -7,7 +7,7 @@ import pendulum
 st.title("PHLwthr")
 
 
-url = "http://127.0.0.1:8000/wthr/forecast"
+url = "http://phl-backend:8000/wthr/forecast"
 r = requests.get(url)
 df = pd.DataFrame(r.json())
 
