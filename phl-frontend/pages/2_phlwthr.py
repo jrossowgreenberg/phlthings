@@ -7,9 +7,13 @@ import pendulum
 st.title("PHLwthr")
 
 
-url = "http://phl-backend:8000/wthr/forecast"
-r = requests.get(url)
-df = pd.DataFrame(r.json())
+@st.cache_data(ttl=3600, max_entries=5)
+def get_weather():
+    url = "http://phl-backend/wthr/forecast"
+    return requests.get(url)
+
+
+df = pd.DataFrame(get_weather().json())
 
 st.write("Today's forecast...")
 

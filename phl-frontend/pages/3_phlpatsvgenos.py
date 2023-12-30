@@ -24,18 +24,28 @@ def star_emoji_gen(star_num: int):
     return "".join(result)
 
 
-url = "http://phl-backend:8000/yelp/reviews"
-business_url = "http://phl-backend:8000/yelp/businesses"
+url = "http://phl-backend/yelp/reviews"
+business_url = "http://phl-backend/yelp/businesses"
+
+
+# Cachine functions
+@st.cache_data(ttl=3600, max_entries=5)
+def get_reviews(business_id):
+    return requests.get(url + f"?business_id={business_id}")
+
+
+@st.cache_data(ttl=3600, max_entries=5)
+def get_business(business_id):
+    return requests.get(business_url + f"/{business_id}")
+
 
 # Reviews
-pats = requests.get(url + f"?business_id={pats_business_id}")
-pats_df = pd.DataFrame(pats.json()["reviews"])
-genos = requests.get(url + f"?business_id={genos_business_id}")
-genos_df = pd.DataFrame(genos.json()["reviews"])
+pats_df = pd.DataFrame(get_reviews(business_id=pats_business_id).json()["reviews"])
+genos_df = pd.DataFrame(get_reviews(business_id=genos_business_id).json()["reviews"])
 
 # Business Info
-pats_b = requests.get(business_url + f"/{pats_business_id}").json()
-genos_b = requests.get(business_url + f"/{genos_business_id}").json()
+pats_b = get_business(business_id=pats_business_id).json()
+genos_b = get_business(business_id=genos_business_id).json()
 
 
 with col1:
