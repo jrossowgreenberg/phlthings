@@ -2,12 +2,14 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from phl_img import PhlImgModel
 from phl_wthr import PhlWthrModel
+from phl_yelp import PhlYelp
 from pydantic import BaseModel
 import pendulum
 import requests
 
 mdl = PhlImgModel()
 wthr = PhlWthrModel()
+yelp = PhlYelp()
 
 app = FastAPI()
 
@@ -47,3 +49,13 @@ async def generate(prompt: ImgRequestBody):
 @app.get("/wthr/forecast")
 async def forecast():
     return wthr.get_forecast()
+
+
+@app.get("/yelp/reviews")
+async def reviews(business_id: str):
+    return yelp.get_reviews(business_id=business_id)
+
+
+@app.get("/yelp/businesses/{business_id}")
+async def businesses(business_id):
+    return yelp.get_business(business_id=business_id)

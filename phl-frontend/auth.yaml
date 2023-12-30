@@ -1,0 +1,13 @@
+credentials:
+  usernames:
+    friends:
+      email: jrossowgreenberg@gmail.com
+      name: Friends
+      password: $2b$12$zhHUprejSZAUsAKODnHKoeiur1PeNCkRzAQ/gURnmXaOqxDoIATmO
+cookie:
+  expiry_days: 30
+  key: YytjjyNVVsYsrvxMsqPkPKZevqPVhoTUXVXawvyJMcsGNGenwX # Must be string
+  name: phlthings_cookie
+preauthorized:
+  emails:
+  - jrossowgreenberg@gmail.com

@@ -1,6 +1,6 @@
 FROM python:3.11.7-bookworm
 
-RUN pip install streamlit pandas pendulum
+RUN pip install streamlit pandas pendulum streamlit-authenticator
 
 WORKDIR /phl
 

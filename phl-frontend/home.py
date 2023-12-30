@@ -6,5 +6,5 @@ st.set_page_config(
 )
 
 st.title("PHLthings")
-st.image("76ers.jpeg")
+st.image("images/homepage.jpg")
 st.sidebar.success("Select an app.")
