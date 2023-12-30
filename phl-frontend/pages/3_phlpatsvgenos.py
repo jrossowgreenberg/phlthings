@@ -24,8 +24,8 @@ def star_emoji_gen(star_num: int):
     return "".join(result)
 
 
-url = "http://127.0.0.1:8000/yelp/reviews"
-business_url = "http://127.0.0.1:8000/yelp/businesses"
+url = "http://phl-backend:8000/yelp/reviews"
+business_url = "http://phl-backend:8000/yelp/businesses"
 
 # Reviews
 pats = requests.get(url + f"?business_id={pats_business_id}")
