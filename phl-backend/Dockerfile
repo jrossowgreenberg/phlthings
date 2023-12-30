@@ -9,6 +9,7 @@ RUN mkdir images
 ADD main.py main.py
 ADD phl_img.py phl_img.py
 ADD phl_wthr.py phl_wthr.py
+ADD phl_yelp.py phl_yelp.py
 
 EXPOSE 8000
 
