@@ -9,7 +9,7 @@ st.title("PHLwthr")
 
 @st.cache_data(ttl=3600, max_entries=5)
 def get_weather():
-    url = "http://phl-backend/wthr/forecast"
+    url = "http://phl-backend:8000/wthr/forecast"
     return requests.get(url)
 
 

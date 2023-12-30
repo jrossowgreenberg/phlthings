@@ -24,8 +24,8 @@ def star_emoji_gen(star_num: int):
     return "".join(result)
 
 
-url = "http://phl-backend/yelp/reviews"
-business_url = "http://phl-backend/yelp/businesses"
+url = "http://phl-backend:8000/yelp/reviews"
+business_url = "http://phl-backend:8000/yelp/businesses"
 
 
 # Cachine functions
