@@ -83,9 +83,11 @@ with col2:
         rating = row["rating"]
         text = row["text"]
         url = row["url"]
+        time_created = pendulum.parse(row["time_created"]).format("MMMM DD, YYYY")
 
         star_rating = star_emoji_gen(rating)
         st.write(star_rating)
+        st.write(time_created)
         st.write(text)
         st.write(f"[full review]({url})")
         st.write("___")
